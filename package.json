@@ -1,0 +1,19 @@
+{
+  "name": "play-with-git",
+  "version": "1.0.0",
+  "main": "hello.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LenaSoldatova/play-with-git.git"
+  },
+  "author": "Olena Soldatova",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LenaSoldatova/play-with-git/issues"
+  },
+  "homepage": "https://github.com/LenaSoldatova/play-with-git#readme",
+  "description": ""
+}
