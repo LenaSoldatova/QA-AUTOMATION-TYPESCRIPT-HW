@@ -12,13 +12,13 @@ switch (weather) {
 }
 
 let age = 20;
-let hasLicense = true;
+let hasLicense = 1;
 
 switch (true) {
-    case (age >= 18 && hasLicense):
+    case (age >= 18 && hasLicense == 1):
         console.log("You can drive a car.");
         break;
-    case (age >= 18 && !hasLicense):
+    case (age >= 18 && hasLicense != 1):
         console.log("You are of legal age, but you don't have a driver's license.");
         break;
     default:
