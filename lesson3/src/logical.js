@@ -1,6 +1,6 @@
-let num = 10;
-let str = "10";
-let boolTrue = true;
+const num = 10;
+const str = "10";
+const boolTrue = true;
 let boolFalse = false;
 let nullValue = null;
 let undefinedValue;
