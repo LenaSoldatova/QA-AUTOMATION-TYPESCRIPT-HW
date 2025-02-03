@@ -13,7 +13,7 @@
     "globals": "^15.14.0",
     "typescript-eslint": "^8.22.0"
   },
-    "scripts": {
+  "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint ."
   }
