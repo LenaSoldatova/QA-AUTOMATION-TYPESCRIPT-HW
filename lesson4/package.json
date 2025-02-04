@@ -1,8 +1,20 @@
 {
+  "name": "lesson4",
+  "version": "1.0.0",
+  "description": "recommended config from me for programming on a JavaScript",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
     "@eslint/js": "^9.19.0",
     "eslint": "^9.19.0",
     "eslint-plugin-unicorn": "^56.0.1",
-    "globals": "^15.14.0"
+    "globals": "^15.14.0",
+    "typescript-eslint": "^8.22.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ."
   }
 }
