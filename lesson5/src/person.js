@@ -14,7 +14,7 @@ export class Person {
                 if (typeof value === 'number' && value > 0) {
                     this._age = value;
                 } else {
-                    console.error("Error: Age is negative");
+                    console.error('Error: Age is negative');
                 }
             },
 
@@ -26,7 +26,7 @@ export class Person {
                 if (typeof value === 'string' && value.length > 0) {
                     this._city = value;
                 } else {
-                    console.error("Error: City should be string");
+                    console.error('Error: City should be string');
                 };
             }
         };
@@ -37,12 +37,12 @@ export class Person {
     }
 
     set fullName(name) {
-        const parts = name.split(" ");
+        const parts = name.split(' ');
         if (parts.length === 2) {
             this._firstName = parts[0];
             this._lastName = parts[1];
         } else {
-            console.error("Error: Full Name formate is [[firstName] [lastName]] ");
+            console.error('Error: Full Name formate is [[firstName] [lastName]] ');
 
         }
     }

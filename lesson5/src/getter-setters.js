@@ -1,9 +1,9 @@
 const person = {
-    _firstName: "Olena",
-    _lastName: "Soldatova",
+    _firstName: 'Olena',
+    _lastName: 'Soldatova',
     _details: {
         _age: 40,
-        _city: "Odesa",
+        _city: 'Odesa',
 
         get age() {
             return this._age;
@@ -12,7 +12,7 @@ const person = {
             if (typeof value === 'number' && value > 0) {
                 this._age = value;
             } else {
-                console.error("Error: Age is negative");
+                console.error('Error: Age is negative');
             }
         },
         get city() {
@@ -22,7 +22,7 @@ const person = {
             if (typeof value === 'string' && value.length > 0) {
                 this._city = value;
             } else {
-                console.error("Error: City should be string");
+                console.error('Error: City should be string');
             }
         }
     },
@@ -30,12 +30,12 @@ const person = {
         return `${this._firstName} ${this._lastName}`;
     },
     set fullName(name) {
-        const parts = name.split(" ");
+        const parts = name.split(' ');
         if (parts.length === 2) {
             this._firstName = parts[0];
             this._lastName = parts[1];
         } else {
-            console.error("Error: Full Name formate is [[firstName] [lastName]] ");
+            console.error('Error: Full Name formate is [[firstName] [lastName]] ');
         }
     },
     incrementAge() {
@@ -44,16 +44,16 @@ const person = {
     }
 };
 
-console.log("Full Name:", person.fullName);
-person.fullName = "Poltorak Andrii";
-console.log("Update Full Name:", person.fullName);
+console.log('Full Name:', person.fullName);
+person.fullName = 'Poltorak Andrii';
+console.log('Update Full Name:', person.fullName);
 
-console.log("Current Age:", person._details.age);
+console.log('Current Age:', person._details.age);
 person._details.age = 35;
-console.log("Update Age:", person._details.age);
+console.log('Update Age:', person._details.age);
 
-console.log("City:", person._details.city);
-person._details.city = "Nice";
-console.log("Updated City:", person._details.city);
+console.log('City:', person._details.city);
+person._details.city = 'Nice';
+console.log('Updated City:', person._details.city);
 
-console.log("Updated Age:", person.incrementAge());
+console.log('Updated Age:', person.incrementAge());
