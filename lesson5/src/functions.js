@@ -7,10 +7,10 @@ export function sumArray(arr) {
 }
 
 export function sum(arr){
-    if(ifArrayNum(arr)){
+    if (ifArrayNum(arr)){
         let sum = 0;
-        for (let i = 0; i < numbersArray.length; i++) {
-            sum += numbersArray[i];
+        for (const num of numbersArray) {
+            sum += num;
         }
         return sum;
     } else {
@@ -29,7 +29,7 @@ export function ifArray(arr) {
 
 export function ifArrayNum(arr) {
     if (!arr.every(item => typeof item === 'number')) {
-        console.error('Error: should be numers array');
+        console.error('Error: should be numbers array');
         return false;
     } else {
         return true;

@@ -7,7 +7,7 @@ export function sumArray(arr, func) {
 }
 
 export function sum(arr){
-    if(ifArrayNum(arr)){
+    if (ifArrayNum(arr)){
         return arr.reduce((sum, current) => sum + current, 0);
     } else {
         return arr.join(', ');
@@ -28,7 +28,7 @@ export function ifArrayNum(arr) {
     if (!arr.every(item => typeof item === 'number')) {
         console.error('Error: should be numers array');
         return false;
-    }else{
+    } else {
         return true;
     }
 }
