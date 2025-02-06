@@ -4,22 +4,16 @@
   "description": "## This lesson covers the following topics:",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint .",
-    "build": "npm run lint && tsc --build"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "run lint": "npx eslint ."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@eslint/js": "^9.19.0",
-    "@stylistic/eslint-plugin": "^3.0.1",
     "eslint": "^9.19.0",
-    "eslint-plugin-prettier": "^5.2.3",
     "eslint-plugin-unicorn": "^56.0.1",
-    "globals": "^15.14.0",
-    "prettier": "^3.4.2",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.7.3",
-    "typescript-eslint": "^8.23.0"
+    "globals": "^15.14.0"
   }
 }
