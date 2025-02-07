@@ -1,4 +1,4 @@
-export function sumArray(arr) {
+function sumArray(arr) {
     if (ifArray(arr) && ifArrayNum(arr)) {
         return sum(arr);
     } else {
@@ -6,7 +6,7 @@ export function sumArray(arr) {
     }
 }
 
-export function sum(arr){
+function sum(arr){
     if (ifArrayNum(arr)){
         let sum = 0;
         for (const num of numbersArray) {
@@ -18,7 +18,7 @@ export function sum(arr){
     }
 };
 
-export function ifArray(arr) {
+function ifArray(arr) {
     if (!Array.isArray(arr)) {
         console.error('Error: should be array');
         return false;
@@ -27,7 +27,7 @@ export function ifArray(arr) {
     }
 }
 
-export function ifArrayNum(arr) {
+function ifArrayNum(arr) {
     if (!arr.every(item => typeof item === 'number')) {
         console.error('Error: should be numbers array');
         return false;
