@@ -1,0 +1,21 @@
+{
+  "name": "lesson5",
+  "version": "1.0.0",
+  "description": "## This lesson covers the following topics:",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "lint": "eslint src/",
+    "lint:fix": "npm run lint -- --fix",
+    "run lint": "npx eslint ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^9.19.0",
+    "eslint": "^9.19.0",
+    "eslint-plugin-unicorn": "^56.0.1",
+    "globals": "^15.14.0"    
+  }
+}
