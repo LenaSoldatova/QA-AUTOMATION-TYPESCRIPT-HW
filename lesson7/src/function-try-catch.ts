@@ -1,57 +1,56 @@
-function sumArrayNew(arr: any[]): number | void {
+function calculate_SumArray(arrNum: number[], arrStr: string[]): string {
     try {
-        if (!ifArrayNew(arr) || !ifArrayNumNew(arr)) {
-            throw new Error('Incorrect Array');
-        }
-        return sumNew(arr as number[]);
+        const numSum = calculate_NumSum(arrNum);
+        const strConcat = stringArray_Concat(arrStr);
+
+        return String(numSum) + strConcat;
     } catch (error) {
         if (error instanceof Error) {
             console.error(error.message);
         } else {
-            console.error('An unknown error occurred');
+            console.error('Unknown error occurred');
         }
+        return '';
     }
 }
 
-function sumNew(arr: number[]): number {
+function calculate_NumSum(arr: number[]): number {
     try {
-        if (!ifArrayNumNew(arr)) {
-            throw new Error('Array should contain only numbers');
-        }
         let total = 0;
         for (const num of arr) {
+            if (typeof num !== 'number') throw new Error('Invalid number in array');
             total += num;
         }
         return total;
     } catch (error) {
         if (error instanceof Error) {
             console.error(error.message);
-        } else {
-            console.error('An unknown error occurred');
         }
         return NaN;
     }
 }
 
-function ifArrayNew(arr: any): boolean {
-    if (!Array.isArray(arr)) {
-        throw new Error('Value should be an array');
+function stringArray_Concat(arr: string[]): string {
+    try {
+        let total = '';
+        for (const str of arr) {
+            if (typeof str !== 'string') throw new Error('Invalid string in array');
+            total += str;
+        }
+        return total;
+    } catch (error) {
+        if (error instanceof Error) {
+            console.error(error.message);
+        }
+        return '';
     }
-    return true;
 }
 
-function ifArrayNumNew(arr: any[]): boolean {
-    if (!arr.every(item => typeof item === 'number')) {
-        throw new Error('Array should contain only numbers');
-    }
-    return true;
-}
+const num_Array: number[] = [10, 20, 30, 40, 50];
+const str_Array: string[] = ['10', '20', '30', '40', '50'];
+const str_Array2: string[] = ['Hello', ' ', 'World', '!'];
 
-const numbersArrayNew: number[] = [10, 20, 30, 40, 50];
-const stringsArrayNew: string[] = ['10', '20', '30', '40', '50'];
-
-console.log('sum of numbers array:', sumNew(numbersArrayNew));
-console.log('sum of numbers array:', sumArrayNew(numbersArrayNew));
-console.log('Sum of string array:', sumArrayNew(stringsArrayNew));
-console.log('sum of numbers array:', ifArrayNew(numbersArrayNew));
-console.log('Sum of string array:', ifArrayNumNew(stringsArrayNew));
+console.log('sum of numbers array:', calculate_SumArray(num_Array, str_Array2));
+console.log('Sum of string array:', calculate_SumArray(num_Array, str_Array));
+console.log('Sum of string array:', stringArray_Concat(str_Array2));
+console.log('Sum of string array:', calculate_NumSum(num_Array));
