@@ -1,14 +1,17 @@
 import { Post } from './interfaces';
-export class PostSummary {
-    public id: number;
+
+export class PostShortInfo {
+    public userId: number;
     public title: string;
+    public personName: string;
 
     public constructor(post: Post) {
-        this.id = post.id;
+        this.userId = post.userId;
         this.title = post.title;
+        this.personName = post.person.name;
     }
 
-    public printSummary(): void {
-        console.log(`Post ID: ${this.id}, Title: ${this.title}`);
+    public getShortInfo(): string {
+        return `Post by ${this.personName} (User ID: ${this.userId}): ${this.title}`;
     }
 }

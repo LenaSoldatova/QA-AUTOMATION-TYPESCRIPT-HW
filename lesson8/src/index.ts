@@ -1,18 +1,13 @@
-import { fetchPost } from './api';
-import { PostSummary } from './converter';
 import { PostEntity } from './abstraction';
+import { fetchPost } from './api';
 
 async function main(): Promise<void> {
-    try {
-        const post = await fetchPost(1);
-        const summary = new PostSummary(post);
-        summary.printSummary();
-
-        const entity = new PostEntity(post);
-        entity.display();
-    } catch (error) {
-        console.error('Error:', error);
-    }
+    const post = await fetchPost(1);
+    const postEntity = new PostEntity(post.userId, post.id, post.title, post.body, post.person || { name: 'Unknown', age: 0 });
+    postEntity.setPerson('Olena', 25);
+    postEntity.displayInfo();
 }
 
-main();
+(async () => {
+    await main();
+})();
