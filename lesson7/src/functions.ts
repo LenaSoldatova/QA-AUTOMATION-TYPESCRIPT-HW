@@ -23,7 +23,9 @@ function stringArrayConcat(arr: string[]): string {
     return total;
 
 }
-
+function SumArray(arrNum: number[], arrStr: string[]): string {
+    return arrNum.reduce((a, b) => a + b, 0).toString() + arrStr.join('');
+}
 
 const numArray: number[] = [10, 20, 30, 40, 50];
 const strArray: string[] = ['10', '20', '30', '40', '50'];
@@ -33,3 +35,5 @@ console.log('sum of numbers array:', calculateSumArray(numArray, strArray2));
 console.log('Sum of string array:', calculateSumArray(numArray, strArray));
 console.log('Sum of string array:', stringArrayConcat(strArray2));
 console.log('Sum of string array:', calculateNumSum(numArray));
+
+console.log('Sum of string array:', SumArray(numArray, strArray2));
