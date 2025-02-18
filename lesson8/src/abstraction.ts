@@ -1,3 +1,5 @@
+import { Post } from './interfaces';
+
 export abstract class BaseEntity {
     public abstract displayInfo(): void;
 
@@ -18,14 +20,16 @@ export class PostEntity extends BaseEntity {
     };
     public person: { name: string; age: number };
 
-    public constructor(userId: number, id: number, title: string, body: string, person?: { name: string; age: number }) {
+    public constructor(post: Post) {
         super();
+        const { userId, id, title, body, person } = post;
         this.userId = userId;
         this.id = id;
         this.details = { title, body };
         this.person = this.initializePerson(person);
         this.logCreation();
     }
+
     public displayInfo(): void {
         console.log(`Post ID: ${this.id}, Title: ${this.details.title}, Author: ${this.person.name}`);
     }
