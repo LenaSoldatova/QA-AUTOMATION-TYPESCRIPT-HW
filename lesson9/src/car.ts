@@ -1,32 +1,13 @@
-import { IVehicle } from './ivehicle';
+import { Vehicle } from './vehicle';
 
-export class Car implements IVehicle {
-    private name = 'Car';
-    private status = '';
-    private speed = 0;
-
-    public startEngine(): void {
-        this.status = `${this.name} engine started.`;
+export class Car extends Vehicle {
+    public constructor() {
+        super('Car');
     }
-    public stopEngine(): void {
-        this.status = `${this.name} engine stopped.`;
+    public accelerate(): void {
+        this.speed += 7; this.status = `${this.name} accelerates smoothly.`;
     }
-    public move(): void {
-        this.status = `${this.name} is moving at ${this.speed} km/h.`;
-    }
-    public getName(): string {
-        return this.name;
-    }
-    public setName(name: string): void {
-        this.name = name;
-    }
-    public getStatus(): string {
-        return this.status;
-    }
-    public getSpeed(): number {
-        return this.speed;
-    }
-    public setSpeed(speed: number): void {
-        this.speed = speed;
+    public brake(): void {
+        this.speed -= 7; this.status = `${this.name} stops efficiently.`;
     }
 }
