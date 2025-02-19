@@ -7,4 +7,6 @@ export interface IVehicle {
     getStatus(): string;
     getSpeed(): number;
     setSpeed(speed: number): void;
+    accelerate(): void;
+    brake(): void
 }

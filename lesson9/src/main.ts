@@ -1,13 +1,15 @@
-import { IVehicle } from './ivehicle';
+import { Vehicle } from './vehicle';
 import { Bike } from './bike';
 import { Truck } from './truck';
 import { Car } from './car';
 
-function operateVehicle(vehicle: IVehicle): void {
+function operateVehicle(vehicle: Vehicle): void {
     vehicle.startEngine();
     console.log(vehicle.getStatus());
-    vehicle.setSpeed(60);
-    vehicle.move();
+    vehicle.accelerate();
+    console.log(vehicle.getStatus());
+    console.log(`Speed: ${vehicle.getSpeed()} km/h`);
+    vehicle.brake();
     console.log(vehicle.getStatus());
     console.log(`Speed: ${vehicle.getSpeed()} km/h`);
     vehicle.stopEngine();
@@ -17,10 +19,6 @@ function operateVehicle(vehicle: IVehicle): void {
 const bike = new Bike();
 const truck = new Truck();
 const car = new Car();
-
-bike.setName('Mountain Bike');
-truck.setName('Heavy Truck');
-car.setName('Sports Car');
 
 operateVehicle(bike);
 operateVehicle(truck);
