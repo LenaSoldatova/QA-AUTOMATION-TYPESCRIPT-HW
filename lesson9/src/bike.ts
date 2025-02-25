@@ -1,4 +1,4 @@
-import { Vehicle } from './vehicl';
+import { Vehicle } from './vehicle';
 
 export class Bike extends Vehicle {
     public constructor() {
