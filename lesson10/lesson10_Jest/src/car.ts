@@ -5,9 +5,11 @@ export class Car extends Vehicle {
         super('Car');
     }
     public accelerate(): void {
-        this.speed += 7; this.status = `${this.name} accelerates smoothly.`;
+        this.speed += 7; 
+        this.status = `${this.name} accelerates smoothly.`;
     }
     public brake(): void {
-        this.speed -= 7; this.status = `${this.name} stops efficiently.`;
+        this.speed -= 7; 
+        this.status = `${this.name} stops efficiently.`;
     }
 }
