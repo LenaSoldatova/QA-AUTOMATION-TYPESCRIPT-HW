@@ -29,7 +29,7 @@ export abstract class Vehicle {
         return this.speed;
     }
     public setSpeed(speed: number): void {
-        this.speed = speed;
+        this.speed = Math.max(0, speed);
     }
 
     public abstract accelerate(): void;

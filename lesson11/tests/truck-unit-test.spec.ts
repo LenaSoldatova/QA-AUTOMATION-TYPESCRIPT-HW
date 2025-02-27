@@ -4,42 +4,32 @@ import { Truck } from '../src/truck';
 
 describe('Truck Class with Mocks', () => {
     let truck: Truck;
-    let mockAccelerate: sinon.SinonStub;
-    let mockBrake: sinon.SinonStub;
-    let mockMove: sinon.SinonStub;
 
     beforeEach(() => {
         truck = new Truck();
-        mockAccelerate = sinon.stub(truck, 'accelerate').callsFake(() => {
-            truck.setSpeed(30);
-            truck['status'] = 'Truck is accelerating heavily.';
-        });
-        mockBrake = sinon.stub(truck, 'brake').callsFake(() => {
-            truck.setSpeed(5);
-            truck['status'] = 'Truck is braking with difficulty.';
-        });
-        mockMove = sinon.stub(truck, 'move').callsFake(() => {
-            truck['status'] = `Truck is moving at ${truck.getSpeed()} km/h.`;
-        });
-    });
-
-    afterEach(() => {
-        mockAccelerate.restore();
-        mockBrake.restore();
-        mockMove.restore();
     });
 
     it('should mock accelerate method', () => {
+        const mockAccelerate = sinon.stub(truck, 'accelerate').callsFake(() => {
+            truck.setSpeed(30);
+            truck['status'] = 'Truck is accelerating heavily.';
+        });
         truck.accelerate();
         expect(truck.getSpeed()).to.equal(30);
         expect(truck.getStatus()).to.equal('Truck is accelerating heavily.');
+        mockAccelerate.restore();
     });
 
     it('should mock brake method', () => {
+        const mockBrake = sinon.stub(truck, 'brake').callsFake(() => {
+            truck.setSpeed(5);
+            truck['status'] = 'Truck is braking with difficulty.';
+        });
         truck.setSpeed(50);
         truck.brake();
         expect(truck.getSpeed()).to.equal(5);
         expect(truck.getStatus()).to.equal('Truck is braking with difficulty.');
+        mockBrake.restore();
     });
 
     it('should start the engine', () => {
@@ -58,9 +48,13 @@ describe('Truck Class with Mocks', () => {
     });
 
     it('should mock move method', () => {
+        const mockMove = sinon.stub(truck, 'move').callsFake(() => {
+            truck['status'] = `Truck is moving at ${truck.getSpeed()} km/h.`;
+        });
         truck.setSpeed(40);
         truck.move();
         expect(truck.getStatus()).to.equal('Truck is moving at 40 km/h.');
+        mockMove.restore();
     });
 
     it('should not allow negative speed', () => {
