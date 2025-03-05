@@ -1,0 +1,197 @@
+{
+	"info": {
+		"_postman_id": "85e17868-92ae-423e-98e6-55bfa12c7521",
+		"name": "[HW_12] Jokes API Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24641763",
+		"_collection_link": "https://blue-shadow-685219.postman.co/workspace/1f2fcd70-22c7-4ad9-8028-36c7d7346306/collection/24641763-85e17868-92ae-423e-98e6-55bfa12c7521?action=share&source=collection_link&creator=24641763"
+	},
+	"item": [
+		{
+			"name": "Get Random Joke",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Response is JSON\", function () {",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+							"});",
+							"pm.test(\"Response has 'setup' and 'punchline'\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property(\"setup\");",
+							"    pm.expect(jsonData).to.have.property(\"punchline\");",
+							"});",
+							"pm.test(\"Response time is less than 500ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3005/jokes/random",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"jokes",
+						"random"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Ten Jokes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Response is JSON\", function () {",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+							"});",
+							"pm.test(\"Response is an array with 10 jokes\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an(\"array\");",
+							"    pm.expect(jsonData.length).to.eql(10);",
+							"});",
+							"pm.test(\"Each joke has 'setup' and 'punchline'\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    jsonData.forEach(joke => {",
+							"        pm.expect(joke).to.have.property(\"setup\").that.is.a(\"string\").and.not.empty;",
+							"        pm.expect(joke).to.have.property(\"punchline\").that.is.a(\"string\").and.not.empty;",
+							"    });",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3005/jokes/ten",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"jokes",
+						"ten"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invalid URL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Invalid URL should return 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3005/jokes/wrong-url",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"jokes",
+						"wrong-url"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Request Not Allowed",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"POST method should return 404 or 405\", function () {",
+							"    pm.expect([404, 405]).to.include(pm.response.code);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3005/jokes/random",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"jokes",
+						"random"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "localhost:3005/jokes/",
+			"type": "string"
+		}
+	]
+}
