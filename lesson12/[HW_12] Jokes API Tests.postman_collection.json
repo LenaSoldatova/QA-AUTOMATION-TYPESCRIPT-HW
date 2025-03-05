@@ -4,7 +4,7 @@
 		"name": "[HW_12] Jokes API Tests",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "24641763",
-		"_collection_link": "https://blue-shadow-685219.postman.co/workspace/My-Workspace~1f2fcd70-22c7-4ad9-8028-36c7d7346306/collection/24641763-85e17868-92ae-423e-98e6-55bfa12c7521?action=share&source=collection_link&creator=24641763"
+		"_collection_link": "https://blue-shadow-685219.postman.co/workspace/1f2fcd70-22c7-4ad9-8028-36c7d7346306/collection/24641763-85e17868-92ae-423e-98e6-55bfa12c7521?action=share&source=collection_link&creator=24641763"
 	},
 	"item": [
 		{
@@ -163,6 +163,35 @@
 				}
 			},
 			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "localhost:3005/jokes/",
+			"type": "string"
 		}
 	]
 }
