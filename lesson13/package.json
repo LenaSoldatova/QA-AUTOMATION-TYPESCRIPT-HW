@@ -9,11 +9,13 @@
     "lint:fix": "npm run lint -- --fix",
     "build": "npm run lint && tsc --build",
     "start index": "ts-node src/index-heater.ts ",
-    "start": "ts-node main.ts"
+    "start": "ts-node main.ts",
+    "@pact-foundation/pact": "^14.0.0"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@playwright/test": "^1.51.0",
     "eslint-plugin-unicorn": "^56.0.1"
   },
   "devDependencies": {

@@ -1,50 +1,47 @@
-import { Pact } from '@pact-foundation/pact';
-import request from 'supertest';
 import { expect } from 'chai';
+import { PactProvider } from '../src/config/pact-provider';
+import { PetStoreService } from '../src/services/pet-store.service';
 
-const provider = new Pact({
-  consumer: 'PetStoreConsumer',
-  provider: 'PetStoreAPI',
-  port: 8081,
-});
+describe('PactV4 PetsStore tests: Consumer', () => {
+    let petStoreService: PetStoreService;
 
-describe('Pact contract tests for PetStore API', () => {
-  before(() => provider.setup());
-  after(() => provider.finalize());
-
-  // Defining a contract for retrieving pet details
-  describe('GET /pet/{petId}', () => {
-    before(() => {
-      return provider.addInteraction({
-        state: 'A pet with ID 1 exists',
-        uponReceiving: 'a request for pet ID 1',
-        withRequest: {
-          method: 'GET',
-          path: '/v2/pet/1',
-        },
-        willRespondWith: {
-          status: 200,
-          headers: { 'Content-Type': 'application/json' },
-          body: {
-            id: 1,
-            name: 'Fluffy',
-            status: 'available',
-          },
-        },
-      });
+    describe('create /pet', () => {
+        it('creates the requested pet', () => {
+            return PactProvider.provider
+                .addInteraction()
+                .given('pet interaction')
+                .uponReceiving('create a pet')
+                .withRequest('POST', '/v2/pet', (builder) => {
+                    builder.headers({ Accept: 'application/json', 'Content-Type': 'application/json' });
+                    builder.jsonBody(PactProvider.petExample);
+                })
+                .willRespondWith(200, (builder) => {
+                    builder.headers({ 'Content-Type': 'application/json' });
+                    builder.jsonBody(PactProvider.EXPECTED_BODY);
+                })
+                .executeTest(async (mockServer) => {
+                    petStoreService = new PetStoreService(mockServer.url);
+                    const responsePost = await petStoreService.createPet(PactProvider.petExample);
+                    expect(responsePost.data).to.deep.eq(PactProvider.petExample);
+                });
+        });
+        it('retrieves the requested pet', () => {
+            return PactProvider.provider
+                .addInteraction()
+                .given('pet interaction')
+                .uponReceiving('retrieve a pet')
+                .withRequest('GET', '/v2/pet/1002', (builder) => {
+                    builder.headers({ Accept: 'application/json' });
+                })
+                .willRespondWith(200, (builder) => {
+                    builder.headers({ 'Content-Type': 'application/json' });
+                    builder.jsonBody(PactProvider.EXPECTED_BODY);
+                })
+                .executeTest(async (mockServer) => {
+                    petStoreService = new PetStoreService(mockServer.url);
+                    const responseGet = await petStoreService.getPet(1002);
+                    expect(responseGet.data).to.deep.eq(PactProvider.petExample);
+                });
+        });
     });
-
-    // Test for retrieving pet details
-    it('Returns the pet details', async () => {
-      const res = await request(provider.mockService.baseUrl).get('/v2/pet/1');
-      expect(res.status).to.equal(200);
-      expect(res.body).to.deep.equal({
-        id: 1,
-        name: 'Fluffy',
-        status: 'available',
-      });
-    });
-  });
-
-  afterEach(() => provider.verify());
 });
