@@ -3,7 +3,7 @@ import { API_URL, setupAPIRequest } from '../src/config/api-config';
 import { before } from 'mocha';
 import { APIRequestContext } from '@playwright/test';
 
-describe('The Cat API Tests', () => {
+describe('The Cat API Integration Tests', () => {
     let imageId: string;
     let request: APIRequestContext;
     before(async () => {
