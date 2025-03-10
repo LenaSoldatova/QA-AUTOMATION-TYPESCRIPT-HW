@@ -12,20 +12,20 @@ export class PactProvider {
 
     private static createPetExample(): PetDto {
         return {
-            id: 1002,
-            category: {
-                id: 1005,
-                name: 'cat'
+            'id':100300,
+            'category': {
+                'id': 105,
+                'name': 'cat'
             },
-            name: 'freddie-clone',
-            photoUrls: ['string'],
-            tags: [
+            'name': 'cat',
+            'photoUrls': ['https://cdn2.thecatapi.com/images/rw09G0crt.jpg'],
+            'tags': [
                 {
-                    id: 1005,
-                    name: 'my freddie clone'
+                    'id': 3,
+                    'name': 'ttt'
                 }
             ],
-            status: 'available'
+            'status': 'available'
         };
     }
 

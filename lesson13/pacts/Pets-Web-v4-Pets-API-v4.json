@@ -15,19 +15,19 @@
         "body": {
           "content": {
             "category": {
-              "id": 1005,
+              "id": 105,
               "name": "cat"
             },
-            "id": 1002,
-            "name": "freddie-clone",
+            "id": 100300,
+            "name": "cat",
             "photoUrls": [
-              "string"
+              "https://cdn2.thecatapi.com/images/rw09G0crt.jpg"
             ],
             "status": "available",
             "tags": [
               {
-                "id": 1005,
-                "name": "my freddie clone"
+                "id": 3,
+                "name": "ttt"
               }
             ]
           },
@@ -49,19 +49,19 @@
         "body": {
           "content": {
             "category": {
-              "id": 1005,
+              "id": 105,
               "name": "cat"
             },
-            "id": 1002,
-            "name": "freddie-clone",
+            "id": 100300,
+            "name": "cat",
             "photoUrls": [
-              "string"
+              "https://cdn2.thecatapi.com/images/rw09G0crt.jpg"
             ],
             "status": "available",
             "tags": [
               {
-                "id": 1005,
-                "name": "my freddie clone"
+                "id": 3,
+                "name": "ttt"
               }
             ]
           },
@@ -112,19 +112,19 @@
         "body": {
           "content": {
             "category": {
-              "id": 1005,
+              "id": 105,
               "name": "cat"
             },
-            "id": 1002,
-            "name": "freddie-clone",
+            "id": 100300,
+            "name": "cat",
             "photoUrls": [
-              "string"
+              "https://cdn2.thecatapi.com/images/rw09G0crt.jpg"
             ],
             "status": "available",
             "tags": [
               {
-                "id": 1005,
-                "name": "my freddie clone"
+                "id": 3,
+                "name": "ttt"
               }
             ]
           },

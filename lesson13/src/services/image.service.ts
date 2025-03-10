@@ -1,4 +1,4 @@
-import { BreedDto } from '../models/breed.dto';
+import { BreedDto, ImgBreedDto } from '../models/breed.dto';
 import { ImageDto } from '../models/image.dto';
 
 export class ImageService {
@@ -6,6 +6,7 @@ export class ImageService {
         'x-api-key': this._token,
         accept: 'application/json'
     };
+
 
     public constructor(private _baseUrl: string, private _token: string) {}
 
@@ -17,8 +18,16 @@ export class ImageService {
         return await response.json();
     }
 
-    public async getImageBreads(imageId: string): Promise<BreedDto[]> {
-        const response = await fetch(`${this._baseUrl}/images/${imageId}/breads`, {
+    public async getBreeds(): Promise<BreedDto[]> {
+        const response = await fetch(`${this._baseUrl}/breeds`, {
+            headers: this._headers
+        });
+
+        return await response.json();
+    }
+
+    public async getImageBreeds(imageId: string): Promise<ImgBreedDto> {
+        const response = await fetch(`${this._baseUrl}/images/${imageId}`, {
             headers: this._headers
         });
 
