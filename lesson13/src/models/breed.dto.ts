@@ -10,6 +10,14 @@ export interface ImageDto {
     url: string;
 }
 
+export interface ImgBreedDto {
+    id: string;
+    url: string;
+    breeds: BreedDto[];
+    width: number,
+    height: number
+}
+
 export interface BreedDto {
     weight: WeightDto;
     id: string;
@@ -41,4 +49,5 @@ export interface BreedDto {
     experimental: number;
     hairless: number;
     natural: number;
+    image:ImageDto
 }

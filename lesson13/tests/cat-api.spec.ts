@@ -1,25 +1,54 @@
 import { expect } from 'chai';
-import { API_URL, setupAPIRequest } from '../src/config/api-config';
+import { API_URL, API_KEY } from '../src/config/api-config';
 import { before } from 'mocha';
-import { APIRequestContext } from '@playwright/test';
+import { ImageService } from '../src/services/image.service';
+import { ImageDto } from 'src/models/breed.dto';
 
 describe('The Cat API Integration Tests', () => {
-    let imageId: string;
-    let request: APIRequestContext;
+
+    const breed = 'char';
+    let breedId: string;
+    let imageId = 'tRy5D7Ncu';
+    let image: ImageDto;
+    let imageService: ImageService;
+
+
     before(async () => {
-        request = await setupAPIRequest();
-    });
-    it('Retrieves a list of images', async () => {
-        const res = await request.get(`${API_URL}/images/search`);
-        const body = await res.json();
-        expect(res.status()).to.equal(200);
-        expect(body).to.be.an('array');
-        expect(body[0]).to.have.property('id');
-        imageId = body[0].id;
+        imageService =  new ImageService(API_URL, API_KEY);
+
     });
 
-    it('Uses the retrieved imageId', async () => {
-        expect(imageId).to.be.a('string');
-        expect(imageId).to.have.length.above(0);
+    it('Retrieves a list of breeds and selects one', async () => {
+
+        const response = await imageService.getMyImages();
+        const img = response.filter((item) => item.original_filename === 'Cat03.jpg');
+        expect(img).to.have.lengthOf(1);
+        imageId = img[0].id;
+    });
+
+    it('Check my images', async () => {
+        const res = await imageService.getMyImages();
+        const body = res.filter((item) => item.original_filename === 'Cat03.jpg');
+        expect(body[0].id).to.equal(imageId);
+    });
+
+    it('Retrieves breed ID for "char"', async () => {
+        const res = await imageService.getBreeds();
+        expect(res).to.be.an('array');
+
+        const charBreed = res.find((b) => b.id === breed);
+        if (charBreed) {
+            breedId = charBreed.id;
+            image = charBreed.image;
+        }
+        expect(charBreed).to.exist;
+
+
+    });
+
+    it('Test for fetching breed information by image ID', async () => {
+        const res = await imageService.getImageBreeds(image.id);
+        expect(res.breeds[0].id).to.equal(breedId);
+        expect(res.url).to.equal(image.url);
     });
 });
