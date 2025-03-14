@@ -1,7 +1,7 @@
 import { APIResponse } from 'playwright';
 import { ApiService } from 'src/api/api.service';
 import fs from 'fs';
-import { ImageDto } from '../dtos/image.dto'; 
+import { ImageDto } from '../dtos/image.dto';
 
 export class ImagesApi {
     private apiService: ApiService;
