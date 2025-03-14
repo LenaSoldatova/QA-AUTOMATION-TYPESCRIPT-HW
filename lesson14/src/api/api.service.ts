@@ -1,4 +1,4 @@
-import { IApiService } from 'src/api/i-api.service';
+import { IApiService } from 'src/services/interfaces/i-api.service';
 import { request, APIRequestContext, APIResponse} from '@playwright/test';
 
 export const API_URL = 'https://api.thecatapi.com/v1';
