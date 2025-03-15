@@ -1,0 +1,36 @@
+Selected website: https://www.olx.ua/uk/
+
+CSS Selectors for Testing
+input[data-testid="search-input"] — search field, enter "Samsung"
+button[data-testid="search-submit"] — "Search" button, click
+div[data-testid="listing-grid"] div[id="880653413"] — listing element in the catalog
+div[data-testid="listing-grid"] div[id="880653413"] div[class="css-1ut25fa"] a[class="css-qo0cxu"] — listing title, click
+button[data-testid="ad-contact-message-button"] — "Message the seller" button
+button[data-test="button-buy"] — "Order" button
+
+XPath Selectors for Testing
+//input[@id='search'] — search field, enter "Samsung"
+//button[@data-testid='dismiss-cookies-banner'] — "Search" button, click
+//div[@data-testid="listing-grid"] //div[@id="880653413"] — listing element in the catalog
+//div[@data-testid="listing-grid"] //div[@id="880653413"] //a //h4 — listing title, click
+//button[@data-testid='ad-contact-message-button'] — "Message" button
+//button[@data-test="button-buy"] — "Order" button
+
+Test Cases
+Test Case 1: Searching for a Listing
+Open the OLX website
+Find the search field input[data-testid="search-input"]
+Enter "Samsung"
+Click the search button button[data-testid="search-submit"]
+Expect listings to appear div[data-testid="listing-grid"]
+
+Test Case 2: Navigating to a Listing Page
+Perform a search for "Samsung"
+Click on the first listing //div[@data-testid="listing-grid"] //div[@id="880653413"] //a //h4
+Expect the listing page to open (verify title //div[@data-testid="ad_title"] //h4[@class="css-10ofhqw"])
+
+Test Case 3: Sending a Message to the Seller
+Perform a search for "Samsung"
+Click on the first listing
+The "Message the seller" button is displayed //button[@data-testid='ad-contact-message-button']
+The "Order" button is displayed //button[@data-test="button-buy"]
