@@ -10,7 +10,6 @@ describe('OLX Tests', () => {
         cy.get('input[data-testid="search-input"]').should('be.visible').type('Samsung');
         cy.get('button[data-testid="search-submit"]').click();
 
-        // Ожидание загрузки списка товаров
         cy.intercept('GET', '**/api/v1/**').as('dataLoad');
         cy.wait('@dataLoad', { timeout: 20000 });
 
@@ -29,7 +28,7 @@ describe('OLX Tests', () => {
             .should('exist')
             .should('be.visible')
             .find('div.css-u2ayx9 a.css-qo0cxu')
-            .eq(1) // Выбираем **второй элемент** списка
+            .eq(1) 
             .click();
 
 
