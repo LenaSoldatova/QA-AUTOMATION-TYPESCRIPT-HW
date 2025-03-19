@@ -15,7 +15,6 @@
   "license": "ISC",
   "dependencies": {
     "eslint-plugin-unicorn": "^56.0.1",
-    "puppeteer": "^24.4.0",
     "typescript": "^5.6.2"
   },
   "devDependencies": {
@@ -24,12 +23,15 @@
     "@stylistic/eslint-plugin-ts": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^8.21.0",
     "@typescript-eslint/parser": "^8.21.0",
+    "assert": "^2.1.0",
     "cypress": "^14.2.0",
     "eslint": "^9.19.0",
     "eslint-plugin-prettier": "^5.2.3",
     "esrun": "^3.2.26",
     "globals": "^15.14.0",
+    "mocha": "^11.1.0",
     "prettier": "3.4.2",
+    "puppeteer": "^24.4.0",
     "ts-node": "^10.9.2",
     "typescript-eslint": "^8.21.0"
   }
