@@ -25,10 +25,6 @@ describe('OLX Tests', () => {
 
     it('Item page should show "Message" and "Order" buttons', async () => {
         await olxPage.clickFirstListing();
-        await olxPage.waitForPageToLoadByOBJL(olxPage.messageButton, 'Expected item page to load with message button visible');
-        await expect(await olxPage.messageButton.isDisplayed()).toBe(true);
-        await expect(await olxPage.orderButton.isDisplayed()).toBe(true);
-
         await expect(olxPage.messageButton).toBeDisplayed();
         await expect(olxPage.orderButton).toBeDisplayed();
     });
