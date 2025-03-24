@@ -10,8 +10,12 @@ export class OlxPage {
         return $('button[data-testid="search-submit"]');
     }
 
+    public get searchResults(): ChainablePromiseElement {
+        return $('div[data-testid="listing-grid"]');
+    }
+
     public get firstListing(): ChainablePromiseElement {
-        return $('div[data-testid="listing-grid"] div.css-u2ayx9 a.css-qo0cxu');
+        return $(`(//div[@data-testid="listing-grid"]//div[@class='css-u2ayx9']//a[@class='css-1tqlkj0'])[1]`);
     }
 
     public get messageButton(): ChainablePromiseElement {
@@ -24,6 +28,7 @@ export class OlxPage {
 
     public async openHomePage(): Promise<void> {
         await browser.url('https://www.olx.ua/');
+        await this.searchInput.waitForDisplayed();
     }
 
     public async closePopupIfVisible(): Promise<void> {
@@ -37,30 +42,14 @@ export class OlxPage {
         await this.searchInput.waitForDisplayed();
         await this.searchInput.setValue(query);
         await this.searchButton.click();
-        const searchURL = "q-" + query;
-        await this.waitForPageToLoadByURL(searchURL);
-    }
-
-    public async waitForPageToLoadByURL(query: string): Promise<void> {
-        await browser.waitUntil(
-            async () => (await browser.getUrl()).includes(query),
-            {
-                timeout: 10000,
-                timeoutMsg: `Expected URL to include ${query} after search`
-            }
-        );
-    }
-
-    public async waitForPageToLoadByOBJL(obj: ChainablePromiseElement, message: string): Promise<void> {
-        await obj.waitForDisplayed({
-            timeout: 10000,
-            timeoutMsg: message
-        });
+        await this.searchResults.waitForDisplayed();
     }
 
     public async clickFirstListing(): Promise<void> {
-        this.waitForPageToLoadByOBJL(this.firstListing, 'Expected at least one listing to be visible');
+        this.firstListing.waitForDisplayed();
         await this.firstListing.click();
+        this.messageButton.waitForDisplayed();
+        this.orderButton.waitForDisplayed();
     }
 
 }
