@@ -1,22 +1,36 @@
 import { Page, Locator } from '@playwright/test';
 
 export class OlxPage {
-    public readonly searchInput: Locator;
-    public readonly searchButton: Locator;
-    public readonly searchResults: Locator;
-    public readonly firstListing: Locator;
-    public readonly messageButton: Locator;
-    public readonly orderButton: Locator;
-    public readonly popupClose: Locator;
 
     public constructor(private page: Page) {
-        this.searchInput = page.locator('input[data-testid="search-input"]');
-        this.searchButton = page.locator('button[data-testid="search-submit"]');
-        this.searchResults = page.locator('//div[@data-testid="listing-grid"]');
-        this.firstListing = page.locator('div[data-testid="listing-grid"] div.css-u2ayx9 a').first();
-        this.messageButton = page.locator('button[data-testid="ad-contact-message-button"]');
-        this.orderButton = page.locator('button[data-test="button-buy"]');
-        this.popupClose = page.locator('button[data-testid="popup-close"]');
+    }
+
+    private get searchButton(): Locator {
+        return this.page.locator('button[data-testid="search-submit"]');
+    }
+
+    private get popupClose(): Locator {
+        return this.page.locator('button[data-testid="popup-close"]');
+    }
+
+    public get searchInput(): Locator {
+        return this.page.locator('input[data-testid="search-input"]');
+    }
+
+    public get searchResults(): Locator {
+        return this.page.locator('div[data-testid="listing-grid"]');
+    }
+
+    public get firstListing(): Locator {
+        return this.page.locator('div[data-testid="listing-grid"] div.css-u2ayx9 a').first();
+    }
+
+    public get messageButton(): Locator {
+        return this.page.locator('button[data-testid="ad-contact-message-button"]');
+    }
+
+    public get orderButton(): Locator {
+        return this.page.locator('button[data-test="button-buy"]');
     }
 
     public async openHomePage(): Promise<void> {
