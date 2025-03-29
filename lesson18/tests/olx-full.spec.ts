@@ -15,17 +15,12 @@ test.describe('OLX chained flow', () => {
     });
 
     test('02. Search results should contain at least one item', async () => {
-        await expect(olx.searchInput).toBeVisible();
         await olx.searchItem('Samsung');
-        await expect(olx.searchResults).toBeVisible();
+        await expect(olx.firstListing).toBeVisible();
     });
 
     test('03. Item page should show "Message" and "Order" buttons', async () => {
-        await expect(olx.searchInput).toBeVisible();
         await olx.searchItem('Samsung');
-        await expect(olx.searchResults).toBeVisible();
-        await expect(olx.firstListing).toBeVisible();
-
         await olx.clickFirstListing();
         await expect(olx.messageButton).toBeVisible();
         await expect(olx.orderButton).toBeVisible();
