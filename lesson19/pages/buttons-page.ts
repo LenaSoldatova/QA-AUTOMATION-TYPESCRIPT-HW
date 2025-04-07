@@ -1,27 +1,16 @@
 import { Page, Locator } from '@playwright/test';
+import { SideMenu } from '../components/side-menu';
 
 export class ButtonsPage {
     public constructor(private readonly page: Page) {}
-
+    private readonly sideMenu = new SideMenu(this.page);
 
     public async goto(): Promise<void> {
-        await this.page.goto('https://demoqa.com/buttons');
+        await this.page.goto('https://demoqa.com');
+        await this.sideMenu.expandElements();
+        await this.sideMenu.openSubmenuItem('Buttons');
     }
 
-    //Buttons
-    private get doubleClickBtn(): Locator {
-        return this.page.locator('//button[@id="doubleClickBtn"]');
-    }
-
-    private get rightClickBtn(): Locator {
-        return this.page.locator('//button[@id="rightClickBtn"]');
-    }
-
-    private get clickMeBtn(): Locator {
-        return this.page.locator('//button[text()="Click Me"]');
-    }
-
-    // Actions
     public async doubleClick(): Promise<void> {
         await this.doubleClickBtn.dblclick();
     }
@@ -35,7 +24,6 @@ export class ButtonsPage {
         await this.clickMeBtn.click();
     }
 
-    //Messages
     public get doubleClickMessage(): Locator {
         return this.page.locator('//p[@id="doubleClickMessage"]');
     }
@@ -48,4 +36,15 @@ export class ButtonsPage {
         return this.page.locator('//p[@id="dynamicClickMessage"]');
     }
 
+    private get doubleClickBtn(): Locator {
+        return this.page.locator('//button[@id="doubleClickBtn"]');
+    }
+
+    private get rightClickBtn(): Locator {
+        return this.page.locator('//button[@id="rightClickBtn"]');
+    }
+
+    private get clickMeBtn(): Locator {
+        return this.page.locator('//button[text()="Click Me"]');
+    }
 }
