@@ -1,0 +1,132 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "demoqa-text-box-form;fill-in-the-form-and-check-the-result",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "Fill in the form and check the result",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 543289199
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "I open the text box page",
+            "match": {
+              "location": "file:\\C:\\autoQA\\QA-AUTOMATION-TYPESCRIPT-HW\\lesson20\\features\\steps\\text-box-steps.ts:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2218483000
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "field",
+                      "value"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "name",
+                      "Lena QA"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "email",
+                      "lena@example.com"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "currentAddress",
+                      "Nice"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "permanentAddress",
+                      "Earth"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 5,
+            "name": "I fill the form with:",
+            "match": {
+              "location": "file:\\C:\\autoQA\\QA-AUTOMATION-TYPESCRIPT-HW\\lesson20\\features\\steps\\text-box-steps.ts:17"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 83111700
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "I submit the form",
+            "match": {
+              "location": "file:\\C:\\autoQA\\QA-AUTOMATION-TYPESCRIPT-HW\\lesson20\\features\\steps\\text-box-steps.ts:23"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 67448499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 12,
+            "name": "I should see the name \"Lena QA\"",
+            "match": {
+              "location": "file:\\C:\\autoQA\\QA-AUTOMATION-TYPESCRIPT-HW\\lesson20\\features\\steps\\text-box-steps.ts:28"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7406799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 13,
+            "name": "I should see the email \"lena@example.com\"",
+            "match": {
+              "location": "file:\\C:\\autoQA\\QA-AUTOMATION-TYPESCRIPT-HW\\lesson20\\features\\steps\\text-box-steps.ts:33"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4487600
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "demoqa-text-box-form",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "DemoQA Text Box Form",
+    "tags": [],
+    "uri": "features\\demoqa-text-box.feature"
+  }
+]

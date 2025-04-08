@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<testsuite name="Cucumber" time="1.738" tests="1" skipped="0" failures="1" errors="0" timestamp="2025-04-08T19:19:25.559Z">
+  <testcase classname="DemoQA Text Box Form" name="Fill in the form and check the result" time="0.511">
+    <failure type="TypeError" message="Cannot read properties of undefined (reading 'goto')"><![CDATA[    at World.<anonymous> (file:///C:/autoQA/QA-AUTOMATION-TYPESCRIPT-HW/lesson20/features/steps/text-box-steps.ts:14:32)
+    at file:///C:/autoQA/QA-AUTOMATION-TYPESCRIPT-HW/lesson20/features/steps/text-box-steps.ts:7:71
+    at __awaiter (file:///C:/autoQA/QA-AUTOMATION-TYPESCRIPT-HW/lesson20/features/steps/text-box-steps.ts:3:12)
+    at World.<anonymous> (file:///C:/autoQA/QA-AUTOMATION-TYPESCRIPT-HW/lesson20/features/steps/text-box-steps.ts:13:12)
+    at Object.run (C:\autoQA\QA-AUTOMATION-TYPESCRIPT-HW\lesson20\node_modules\@cucumber\cucumber\lib\user_code_runner.js:24:27)
+    at C:\autoQA\QA-AUTOMATION-TYPESCRIPT-HW\lesson20\node_modules\@cucumber\cucumber\lib\runtime\step_runner.js:54:114
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_hooks:91:14)
+    at runInTestCaseScope (C:\autoQA\QA-AUTOMATION-TYPESCRIPT-HW\lesson20\node_modules\@cucumber\cucumber\lib\runtime\scope\test_case_scope.js:8:26)]]></failure>
+    <system-out><![CDATA[Given I open the text box page..............................................failed
+When I fill the form with:..................................................skipped
+And I submit the form.......................................................skipped
+Then I should see the name "Lena QA"........................................skipped
+And I should see the email "lena@example.com"...............................skipped]]></system-out>
+  </testcase>
+</testsuite>
