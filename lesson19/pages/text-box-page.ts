@@ -2,25 +2,7 @@ import { Page, Locator } from '@playwright/test';
 import { SideMenu } from '../components/side-menu';
 
 export class TextBoxPage {
-    public constructor(private readonly page: Page) {}
     private readonly sideMenu = new SideMenu(this.page);
-
-    public async goto(): Promise<void> {
-        await this.page.goto('https://demoqa.com');
-        await this.sideMenu.expandElements();
-        await this.sideMenu.openSubmenuItem('Text Box');
-    }
-
-    public async fillForm(name: string, email: string, currentAddress: string, permanentAddress: string): Promise<void> {
-        await this.fullNameInput.fill(name);
-        await this.emailInput.fill(email);
-        await this.currentAddressInput.fill(currentAddress);
-        await this.permanentAddressInput.fill(permanentAddress);
-    }
-
-    public async submitForm(): Promise<void> {
-        await this.submitButton.click();
-    }
 
     public get outputBox(): Locator {
         return this.page.locator('//div[@id="output"]');
@@ -53,4 +35,24 @@ export class TextBoxPage {
     private get submitButton(): Locator {
         return this.page.locator('//button[@id="submit"]');
     }
+    public constructor(private readonly page: Page) {}
+
+
+    public async goto(): Promise<void> {
+        await this.page.goto('https://demoqa.com');
+        await this.sideMenu.expandElements();
+        await this.sideMenu.openSubmenuItem('Text Box');
+    }
+
+    public async fillForm(data: { name: string; email: string; currentAddress: string; permanentAddress: string }): Promise<void> {
+        await this.fullNameInput.fill(data.name);
+        await this.emailInput.fill(data.email);
+        await this.currentAddressInput.fill(data.currentAddress);
+        await this.permanentAddressInput.fill(data.permanentAddress);
+    }
+    
+    public async submitForm(): Promise<void> {
+        await this.submitButton.click();
+    }
+    
 }

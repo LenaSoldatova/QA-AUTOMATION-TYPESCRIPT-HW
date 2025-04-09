@@ -10,17 +10,16 @@ test.describe('Text Box form on demoqa.com', () => {
     });
 
     test('should fill the form and display correct output', async () => {
-        await textBoxPage.fillForm(
-            'Lena QA',
-            'lena@example.com',
-            'Nice, France',
-            'Remote Planet Earth'
-        );
-
+        const data =  { 
+            name: 'Lena QA',
+            email: 'lena@example.com',
+            currentAddress: 'Nice, France',
+            permanentAddress: 'Remote Planet Earth'
+        };        
+        await textBoxPage.fillForm(data);
         await textBoxPage.submitForm();
-
         await expect(textBoxPage.outputBox).toBeVisible();
-        await expect(textBoxPage.outputName).toContainText('Lena QA');
-        await expect(textBoxPage.outputEmail).toContainText('lena@example.com');
+        await expect(textBoxPage.outputName).toContainText(data.name);
+        await expect(textBoxPage.outputEmail).toContainText(data.email);
     });
 });
