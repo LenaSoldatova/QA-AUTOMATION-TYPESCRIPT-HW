@@ -9,12 +9,12 @@ Given('I open the text box page', async function (this: RobotDreamsWorld) {
 
 When('I fill the form with:', async function (this: RobotDreamsWorld, table: DataTable) {
     const data = table.rowsHash();
-    await this.textBoxPage.fillForm(
-        data.name,
-        data.email,
-        data.currentAddress,
-        data.permanentAddress
-    );
+    await this.textBoxPage.fillForm({
+        name: data.name,
+        email: data.email,
+        currentAddress: data.currentAddress,
+        permanentAddress: data.permanentAddress
+    });
 });
 
 When('I submit the form', async function (this: RobotDreamsWorld) {
