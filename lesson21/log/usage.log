@@ -1,0 +1,8 @@
+2025-04-11 21:32:32 - [32minfo[39m: Running SDK with args C:\nvm4w\nodejs\node.exe C:\autoQA\QA-AUTOMATION-TYPESCRIPT-HW\lesson21\node_modules\browserstack-node-sdk\src\bin\runner.js playwright test
+2025-04-11 21:32:33 - [32minfo[39m: Reading configs from C:\autoQA\QA-AUTOMATION-TYPESCRIPT-HW\lesson21\browserstack.yml
+2025-04-11 21:32:33 - [32minfo[39m: SDK run started with id: 3c93024a-91a2-4f01-8083-fdea184abdcf
+2025-04-11 21:32:34 - [32minfo[39m: Testhub started with id: ugza9nxxh4uy8fbekdwnazlpmzgyoylezr7ovxt0
+2025-04-11 21:32:56 - [32minfo[39m: Visit https://observability.browserstack.com/builds/ugza9nxxh4uy8fbekdwnazlpmzgyoylezr7ovxt0 to view build report, insights, and many more debugging information all at one place!
+
+2025-04-11 21:32:57 - [32minfo[39m: SDK run ended for id: 3c93024a-91a2-4f01-8083-fdea184abdcf, testhub id: ugza9nxxh4uy8fbekdwnazlpmzgyoylezr7ovxt0
+2025-04-11 21:32:58 - [32minfo[39m: Deleting C:\autoQA\QA-AUTOMATION-TYPESCRIPT-HW\lesson21\playwright-browserstack-sdk.config.ts

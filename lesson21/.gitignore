@@ -1,0 +1,14 @@
+# Playwright
+.node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+browser-context.json
+allure-results/
+allure-report/
+.obs_test_details-ugza9nxxh4uy8fbekdwnazlpmzgyoylezr7ovxt0/
+.reportportal/
+lesson21/reportportal/
+lesson21/node_modules/
+
