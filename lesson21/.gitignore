@@ -28,7 +28,6 @@ log/
 # ReportPortal
 .reportportal/
 
-
 # Общие
 *.zip
 *.tmp
