@@ -2,12 +2,13 @@
 
 ## Done
 
-В рамках данного задания в проект Playwright добавлены и настроены следующие системы отчётности:
+Reports:
 
 - [Allure Report](https://docs.qameta.io/allure/)
 - [BrowserStack Test Observability](https://www.browserstack.com/docs/test-observability/quick-start/javascript)
 - [ReportPortal](https://reportportal.io/)
-- Встроенный Playwright HTML-репорт
+- [Mochawesome](https://github.com/adamgruber/mochawesome)
+- Integrated Playwright HTML-репорт
 
 ## Commands
 
@@ -23,3 +24,8 @@ npm run allure:open
 
 # Run tests in BrowserStack Observability
 npm run test:bs
+
+### 📘 Mochawesome
+cd lesson21/mocha-tests
+npm install
+npm run test

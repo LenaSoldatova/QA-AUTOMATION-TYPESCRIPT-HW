@@ -6,6 +6,9 @@
 /playwright/.cache/
 browser-context.json
 lesson21/node_modules/
+lesson21/mocha-tests/node_modules/
+mocha-tests/mochawesome-report/
+mocha-tests/node_modules/
 
 # Reporters & logs
 lesson21/log/
@@ -14,6 +17,8 @@ lesson21/allure-report/
 lesson21/allure-results/
 lesson21/._obs_test_details-*/
 lesson21/*.log
+
+mocha-tests/mochawesome-report/
 
 # Allure
 allure-results/
