@@ -26,6 +26,7 @@ log/
 *.log
 
 # ReportPortal
+reportportal/
 .reportportal/
 
 # Общие
