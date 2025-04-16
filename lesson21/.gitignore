@@ -5,10 +5,22 @@
 /blob-report/
 /playwright/.cache/
 browser-context.json
+lesson21/node_modules/
+# Allure
 allure-results/
 allure-report/
+
+# BrowserStack SDK
+._obs_test_details-*/
 .obs_test_details-ugza9nxxh4uy8fbekdwnazlpmzgyoylezr7ovxt0/
+log/
+*.log
+
+# ReportPortal
 .reportportal/
 lesson21/reportportal/
-lesson21/node_modules/
+
+# Общие
+*.zip
+*.tmp
 
