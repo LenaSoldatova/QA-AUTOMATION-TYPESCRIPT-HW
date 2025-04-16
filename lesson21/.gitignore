@@ -6,6 +6,15 @@
 /playwright/.cache/
 browser-context.json
 lesson21/node_modules/
+
+# Reporters & logs
+lesson21/log/
+lesson21/reportportal/
+lesson21/allure-report/
+lesson21/allure-results/
+lesson21/._obs_test_details-*/
+lesson21/*.log
+
 # Allure
 allure-results/
 allure-report/
@@ -18,7 +27,7 @@ log/
 
 # ReportPortal
 .reportportal/
-lesson21/reportportal/
+
 
 # Общие
 *.zip
