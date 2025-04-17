@@ -1,0 +1,13 @@
+userName: elena520
+accessKey: Zpqb1fbUreWWnrUAMTFH
+
+projectName: QA-Automation-HW
+buildName: lesson21 allure report
+buildIdentifier: '#${BUILD_NUMBER}'
+
+testObservability: true
+browserstackAutomation: false
+
+consoleLogs: info
+networkLogs: true
+debug: true
