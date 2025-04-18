@@ -1,0 +1,28 @@
+services:
+  app:
+    container_name: app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    networks:
+      - appnet
+
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+      volumes:
+      - .:/usr/src/app
+    depends_on:
+      - app
+    networks:
+      - appnet
+    env_file:
+      - .env
+    command: >
+      sh -c "node wait-for-app.js && npx playwright test"
+      
+networks:
+  appnet:
