@@ -1,0 +1,37 @@
+# Use Ubuntu 20.04 as base image
+FROM ubuntu:20.04
+
+# Make bash default shell
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+
+# Install required packages
+RUN apt-get update && \
+    apt-get install -y curl git wget ca-certificates gnupg lsb-release && \
+    rm -rf /var/lib/apt/lists/*
+
+# Install Node.js via NVM
+ENV NVM_DIR=/root/.nvm
+ENV NODE_VERSION=20.11.1
+ENV PATH=$NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
+
+# Set timezone to avoid interactive prompt
+ENV TZ=Europe/Kyiv
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+RUN mkdir -p $NVM_DIR && \
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash && \
+    . $NVM_DIR/nvm.sh && \
+    nvm install $NODE_VERSION && \
+    nvm use $NODE_VERSION && \
+    npm install -g npm@10.2.4
+
+# Set working directory
+WORKDIR /usr/src/app
+
+# Copy all project files (including wait-for-app.js)
+COPY . .
+
+# Install dependencies and Playwright
+RUN . $NVM_DIR/nvm.sh && \
+    npm install && \
+    npx playwright install --with-deps
